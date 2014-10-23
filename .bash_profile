@@ -6,10 +6,11 @@ alias s='open -a "Sublime Text"'
 
 # Color LS
 colorflag="-G"
-alias ls="command ls ${colorflag}"
-alias l="ls -lF ${colorflag}" # all files, in long format
-alias la="ls -laF ${colorflag}" # all files inc dotfiles, in long format
-alias lsd='ls -lF ${colorflag} | grep "^d"' # only directories
+alias ls="ls --color"
+alias l="ls -lF " # all files, in long format
+alias la="ls -laF " # all files inc dotfiles, in long format
+alias lsd='ls -lF  | grep "^d"' # only directories
+alias ll="ls -al"
 
 # Quicker navigation
 alias ..="cd .."
@@ -18,8 +19,6 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
 # Shortcuts to my Code folder in my home directory
-alias code="cd ~/Code"
-alias sites="cd ~/Code/sites"
 
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
@@ -33,7 +32,8 @@ alias c='pygmentize -O style=monokai -f console256 -g'
 alias gs='git status'
 alias ga='git add .'
 alias gc='git commit -m' # requires you to type a commit message
-alias gp='git push'
+alias gpl='git pull'
+alias gps='git push'
 
 
 ### Prompt Colors
@@ -94,9 +94,9 @@ function parse_git_branch() {
 
 # Change this symbol to something sweet.
 # (http://en.wikipedia.org/wiki/Unicode_symbols)
-symbol="⚡ "
+symbol="[\u@\h]⚡ "
 
-export PS1="\[${BOLD}${MAGENTA}\]\u \[$WHITE\]in \[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n$symbol\[$RESET\]"
+export PS1="\[${BOLD}${MAGENTA}\]\u \[$WHITE\]in \[$GREEN\]\h:\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n$symbol\[$RESET\]"
 export PS2="\[$ORANGE\]→ \[$RESET\]"
 
 
