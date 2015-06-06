@@ -1,13 +1,17 @@
 ### Aliases
 
+export EDITOR="vim"
+export LC_ALL=en_US.UTF8
+export HISTSIZE=10000
+
 # Open specified files in Sublime Text
 # "s ." will open the current directory in Sublime
-alias s='open -a "Sublime Text"'
+#alias s='open -a "Sublime Text"'
 
 # Color LS
 colorflag="-G"
 alias ls="ls --color"
-alias l="ls -lF " # all files, in long format
+#alias l="ls -lF " # all files, in long format
 alias la="ls -laF " # all files inc dotfiles, in long format
 alias lsd='ls -lF  | grep "^d"' # only directories
 alias ll="ls -al"
@@ -30,10 +34,12 @@ alias c='pygmentize -O style=monokai -f console256 -g'
 # Git
 # You must install Git first - ""
 alias gs='git status'
+alias gd='git diff'
 alias ga='git add .'
 alias gc='git commit -m' # requires you to type a commit message
 alias gpl='git pull'
 alias gps='git push'
+alias gb="git branch"
 
 
 ### Prompt Colors
@@ -99,11 +105,10 @@ symbol="[\u@\h]⚡ "
 export PS1="\[${BOLD}${MAGENTA}\]\u \[$WHITE\]in \[$GREEN\]\h:\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n$symbol\[$RESET\]"
 export PS2="\[$ORANGE\]→ \[$RESET\]"
 
-
 ### Misc
 
 # Only show the current directory's name in the tab
 export PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/}\007"'
 
 # init z! (https://github.com/rupa/z)
-. ~/z.sh
+#. ~/z.sh
