@@ -112,4 +112,12 @@ export PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/}\007"'
 
 # init z! (https://github.com/rupa/z)
 #. ~/z.sh
-source ~/.bashrc.d/*.sh
+
+function load_bashrc_dir() {
+    local bashrc_dir=$1
+    for f in `ls --color=none $bashrc_dir/*.sh`;do 
+        source $f
+    done
+}
+
+load_bashrc_dir ~/.bashrc.d
