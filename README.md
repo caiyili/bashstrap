@@ -1,6 +1,6 @@
 Bashstrap is a quick way to spruce up OSX terminal. It cuts out the fluff, adds in timesaving features, and provides a solid foundation for customizing your terminal style.
 
-<img src="https://raw.github.com/barryclark/bashstrap/master/screenshot.png" alt="screenshot" />
+<img src="https://raw.github.com/caiyili/bashstrap/master/screenshot.png" alt="screenshot" />
 
 ### Feature list
 
@@ -32,7 +32,7 @@ Bashstrap is a quick way to spruce up OSX terminal. It cuts out the fluff, adds 
 
 2. Install Bashstrap into your home dir:
 
-		cd; curl -#L https://github.com/barryclark/bashstrap/tarball/master | tar -xzv --strip-components 1 --exclude={README.md,screenshot.png}
+		cd; curl -#L https://github.com/caiyili/bashstrap/tarball/master | tar -xzv --strip-components 1 --exclude={README.md,screenshot.png}
 
 ### Installation: iTerm (10 mins)
 
@@ -45,4 +45,4 @@ Following these steps will make your iTerm look identical to mine in the screens
 5. Lighter blue for the directory highlighting: *iTerm Preferences > Profiles > Default > Colors > click Blue and make it lighter*
 6. Make default window size bigger: *iTerm Preferences > Profiles > Default > Window > Setting for New Windows > I like Columns: 80, Rows 28*
 
-### For more on configuring Bashstrap, see my blog post: [Creating Bashstrap](http://barryclark.co/creating-bashstrap)
+### For more on configuring Bashstrap, see my blog post: [Creating Bashstrap](http://caiyili.co/creating-bashstrap)
