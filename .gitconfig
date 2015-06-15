@@ -3,9 +3,6 @@
 	st = status
 	br = branch
 	ci = commit
-[user]
-	name = CaiYili
-	email = caiyili@baijiahulian.com
 [core]
 	# Use custom `.gitignore`
 	excludesfile = ~/.gitignore
