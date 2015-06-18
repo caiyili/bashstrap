@@ -3,6 +3,8 @@
 export EDITOR="vim"
 export LC_ALL=en_US.UTF8
 export HISTSIZE=10000
+export PATH="$PATH:$HOME/bin"
+export MANPATH="$MANPATH:$HOME/.man"
 
 # Open specified files in Sublime Text
 # "s ." will open the current directory in Sublime
@@ -15,6 +17,9 @@ alias ls="ls --color"
 alias la="ls -laF " # all files inc dotfiles, in long format
 alias lsd='ls -lF  | grep "^d"' # only directories
 alias ll="ls -al"
+alias gg="git grep"
+
+alias ag="ag --column --color-match=\"31;40\" --color-path=\"0;36\""
 
 # Quicker navigation
 alias ..="cd .."
@@ -40,6 +45,7 @@ alias gc='git commit -m' # requires you to type a commit message
 alias gpl='git pull'
 alias gps='git push'
 alias gb="git branch"
+alias gtm="git tag -l '*m*'"
 
 
 ### Prompt Colors
@@ -95,14 +101,14 @@ function parse_git_dirty() {
 	[[ $(git status 2> /dev/null | tail -n1) != *"working directory clean"* ]] && echo "*"
 }
 function parse_git_branch() {
-	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
+	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/(\1$(parse_git_dirty))/"
 }
 
 # Change this symbol to something sweet.
 # (http://en.wikipedia.org/wiki/Unicode_symbols)
-symbol="[\u@\h]⚡ "
+symbol="⚡ "
 
-export PS1="\[${BOLD}${MAGENTA}\]\u \[$WHITE\]in \[$GREEN\]\h:\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n$symbol\[$RESET\]"
+export PS1="\[${BOLD}${MAGENTA}\]\u@\h:\w \[$PURPLE\]\$(parse_git_branch)\[$WHITE\]$symbol\[$RESET\]"
 export PS2="\[$ORANGE\]→ \[$RESET\]"
 
 ### Misc
