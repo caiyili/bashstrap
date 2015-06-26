@@ -5,6 +5,7 @@ export LC_ALL=en_US.UTF8
 export HISTSIZE=10000
 export PATH="$PATH:$HOME/bin"
 export MANPATH="$MANPATH:$HOME/.man"
+unset MAILCHECK
 
 # Open specified files in Sublime Text
 # "s ." will open the current directory in Sublime
@@ -19,7 +20,7 @@ alias lsd='ls -lF  | grep "^d"' # only directories
 alias ll="ls -al"
 alias gg="git grep"
 
-alias ag="ag --column --color-match=\"31;40\" --color-path=\"0;36\""
+alias ag="ag --color-match=\"31;40\" --color-path=\"0;36\""
 
 # Quicker navigation
 alias ..="cd .."
@@ -107,8 +108,9 @@ function parse_git_branch() {
 # Change this symbol to something sweet.
 # (http://en.wikipedia.org/wiki/Unicode_symbols)
 symbol="⚡ "
+hostname=$(hostname)
 
-export PS1="\[${BOLD}${MAGENTA}\]\u@\h:\w \[$PURPLE\]\$(parse_git_branch)\[$WHITE\]$symbol\[$RESET\]"
+export PS1="\[${BOLD}\][\u@${hostname##*-}:\w] \[$PURPLE\]\$(parse_git_branch)\[$WHITE\]$symbol\[$RESET\]"
 export PS2="\[$ORANGE\]→ \[$RESET\]"
 
 ### Misc
